@@ -7,6 +7,38 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <ListBox ItemsSource="{Binding}" DisplayMemberPath="Name"></ListBox>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="63*"/>
+            <ColumnDefinition Width="13*"/>
+            <ColumnDefinition Width="718*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox Name="LBBookings" ItemsSource="{Binding}" DisplayMemberPath="ListBoxToString" Margin="0,0,347.6,0" SelectionChanged="Booking_SelectionChanged" Grid.ColumnSpan="3"></ListBox>
+        <TextBox Name="TBId" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="475.3,14,0,0" Grid.Column="2"/>
+        <TextBox Name="TBNavn" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="475.3,105,0,0" Grid.Column="2"/>
+        <TextBox Name="TBAdresse" HorizontalAlignment="Left" Height="23" Margin="475.3,155,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.Column="2"/>
+        <TextBox Name="TBEmail" HorizontalAlignment="Left" Height="23" Margin="475.3,205,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.Column="2"/>
+        <TextBox Name="TBBrugernavn" HorizontalAlignment="Left" Height="23" Margin="475.3,255,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.Column="2"/>
+        <TextBox Name="TBPassword" HorizontalAlignment="Left" Height="23" Margin="475.3,305,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.Column="2"/>
+        <Button Name="BTNOpret" Content="Opret" HorizontalAlignment="Left" Margin="625.3,107,0,0" VerticalAlignment="Top" Width="75" Click="BTNOpretKunde" Grid.Column="2"/>
+        <Button Name="BTNUpdate" Content="Rediger" HorizontalAlignment="Left" Margin="625.3,161,0,0" VerticalAlignment="Top" Width="75" Click="BTNUpdateKunde" Grid.Column="2"/>
+        <Button x:Name="BTNFind" Content="Find" HorizontalAlignment="Left" Margin="625.3,14,0,0" VerticalAlignment="Top" Width="75" Click="BTNFindKunde" Grid.Column="2"/>
+        <ComboBox Name ="CBox" HorizontalAlignment="Left" Margin="475.3,355,0,0" VerticalAlignment="Top" Width="120" Grid.Column="2">
+            <ComboBoxItem Name="CBReserveret"  PreviewMouseDown="ComboBox_StatusChanged">
+                Reserveret
+            </ComboBoxItem>
+            <ComboBoxItem Name="CBUdleveret" PreviewMouseDown="ComboBox_StatusChanged">
+                Udleveret
+            </ComboBoxItem>
+            <ComboBoxItem Name="CBUTilbageleveret" PreviewMouseDown="ComboBox_StatusChanged">
+                Tilbageleveret
+            </ComboBoxItem>
+        </ComboBox>
+        <Label Content="ID" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="393.3,14,0,0" Grid.Column="2"/>
+        <Label Content="Navn" HorizontalAlignment="Left" Margin="393.3,105,0,0" VerticalAlignment="Top" Grid.Column="2"/>
+        <Label Content="Adresse" HorizontalAlignment="Left" Margin="393.3,158,0,0" VerticalAlignment="Top" Grid.Column="2"/>
+        <Label Content="Email" HorizontalAlignment="Left" Margin="393.3,205,0,0" VerticalAlignment="Top" Grid.Column="2"/>
+        <Label Content="Brugernavn" HorizontalAlignment="Left" Margin="393.3,260,0,0" VerticalAlignment="Top" Grid.Column="2"/>
+        <Label Content="Password" HorizontalAlignment="Left" Margin="393.3,305,0,0" VerticalAlignment="Top" Grid.Column="2"/>
+        <Label Content="StatusBooking" HorizontalAlignment="Left" Margin="371.3,352,0,0" VerticalAlignment="Top" Grid.Column="2"/>
     </Grid>
 </Window>

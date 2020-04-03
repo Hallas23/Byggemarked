@@ -1,0 +1,40 @@
+﻿
+
+@model HomeDepotWebApp.KundeSet
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        <div class="form-horizontal">
+            <h4>KundeLogin</h4>
+            <hr />
+            <div class="form-group">
+                @Html.LabelFor(model => model.Brugernavn)
+                <div>
+                    @Html.EditorFor(model => model.Brugernavn)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Password)
+                <div>
+                    @Html.PasswordFor(model => model.Password)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Login" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+</body>
+</html>
